@@ -21,16 +21,16 @@ export default class AutoComplete extends Component {
     };
   }
 
-  componentDidMount() {
+  loadData() {
     const link = `${API_AMADEUS}/${API_VERSION}/${API_PATH}?apikey=${API_KEY}&term=Roch`;
 
     fetch(link).then(response => response.json()).then(json => {
       this.setState({ fights: json });
     });
-    // fetch(`${API}/films/`).then(res => res.json()).then(json => {
-    //   const { results: films } = json;
-    //   this.setState({ films });
-    // });
+  }
+
+  componentWillMount() {
+    this.loadData();
   }
 
   onSelection(query) {
@@ -48,8 +48,6 @@ export default class AutoComplete extends Component {
     const fights = this.onSelection(query);
     const comp = (a, b) => a.toLowerCase().trim() === b.toLowerCase().trim();
 
-    console.log("fighs");
-    console.log(this.state.fights);
     return (
       <ReactAutoComplete
         autoCapitalize="none"
@@ -63,12 +61,17 @@ export default class AutoComplete extends Component {
         }
         onChangeText={text => this.setState({ query: text })}
         renderItem={({ label, value }) =>
-          <TouchableOpacity onPress={() => this.setState({ query: label })}>
+          <TouchableOpacity
+            onPress={() => this.setState({ query: label.split(" [")[0] })}
+          >
             <Text style={ui.itemText}>
-              {label.split("[")[0]}
+              {label.split(" [")[0]}
             </Text>
           </TouchableOpacity>}
         containerStyle={ui.autoCompleteContainerStyle}
+        listStyle={ui.autoCompleteListStyle}
+        listContainerStyle={ui.autoCompleteListContainerStyle}
+        inputContainerStyle={ui.autoCompleteInputContainerStyle}
       />
     );
   }
@@ -79,6 +82,24 @@ const ui = StyleSheet.create({
     marginTop: 20,
     marginLeft: 20,
     marginRight: 20,
+    fontSize: 10,
+    zIndex: 1
+  },
+  autoCompleteListStyle: {
+    // backgroundColor: "#fff"
+    // fontSize: 10,
+    // zIndex: 2
+  },
+  autoCompleteListContainerStyle: {
+    // backgroundColor: "#000"
+    // fontSize: 10,
+    // zIndex: 5
+  },
+  autoCompleteInputContainerStyle: {
+    borderRadius: 2,
+    paddingLeft: 5,
+    paddingRight: 5,
+    backgroundColor: "#fff",
     fontSize: 10
   },
   itemText: {
