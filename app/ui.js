@@ -1,23 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const ui = StyleSheet.create({
-  toolbar: {
-    backgroundColor: "#81c04d",
-    paddingTop: 30,
-    paddingBottom: 10,
-    flexDirection: "row" //Step 1
-  },
-  toolbarButton: {
-    width: 50, //Step 2
-    color: "#fff",
-    textAlign: "center"
-  },
-  toolbarTitle: {
-    color: "#fff",
-    textAlign: "center",
-    fontWeight: "bold",
-    flex: 1 //Step 3
-  },
+const UI = StyleSheet.create({
   container: {
     backgroundColor: "#F5FCFF",
     flex: 1
@@ -66,4 +49,4 @@ const ui = StyleSheet.create({
   }
 });
 
-export default ui;
+export default UI;
