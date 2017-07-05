@@ -6,20 +6,25 @@ export default class Button extends Component {
   render() {
     return (
       <ReactNativeButton
-        containerStyle={{
-          marginTop: 20,
-          marginLeft: 20,
-          marginRight: 20,
-          padding: 10,
-          height: 45,
-          overflow: "hidden",
-          borderRadius: 4,
-          backgroundColor: "#000"
-        }}
-        style={{ fontSize: 20, color: "#fff" }}
+        containerStyle={ui.buttonContainerStyle}
+        style={ui.buttonStyle}
       >
-        Search
+        {this.props.name}
       </ReactNativeButton>
     );
   }
 }
+
+const ui = StyleSheet.create({
+  buttonStyle: { fontSize: 20, color: "#fff" },
+  buttonContainerStyle: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 10,
+    height: 45,
+    overflow: "hidden",
+    borderRadius: 4,
+    backgroundColor: "#81c04d"
+  }
+});

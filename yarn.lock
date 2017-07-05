@@ -1444,7 +1444,7 @@ crc@3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/crc/-/crc-3.3.0.tgz#fa622e1bc388bf257309082d6b65200ce67090ba"
 
-create-react-class@^15.5.2:
+create-react-class@^15.5.2, create-react-class@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
   dependencies:
@@ -3376,6 +3376,18 @@ react-native-autocomplete-input@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/react-native-autocomplete-input/-/react-native-autocomplete-input-3.3.0.tgz#48cd29163b60405553794529d2f7ca2e9477424b"
 
+react-native-autocomplete-select@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-autocomplete-select/-/react-native-autocomplete-select-1.0.0.tgz#2e5537f49b7038e98fc845236fa5aa5650cf7272"
+  dependencies:
+    react ">=15.4.1"
+    react-native ">=0.38.0"
+    string_score "git+https://github.com/ThiagoNP/string_score.git"
+
+react-native-autocomplete@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-autocomplete/-/react-native-autocomplete-0.3.0.tgz#5231fd672e64880bff288a790286ba09374a9a27"
+
 react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
@@ -3459,7 +3471,7 @@ react-native-vector-icons@^4.2.0:
     prop-types "^15.5.8"
     yargs "^6.3.0"
 
-react-native@0.45.1:
+react-native@0.45.1, react-native@>=0.38.0:
   version "0.45.1"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.45.1.tgz#b3283c4a88233421f9c662a2ff1a4ccc8a9f07c0"
   dependencies:
@@ -3581,6 +3593,16 @@ react@16.0.0-alpha.12:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.6"
+
+react@>=15.4.1:
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
+  dependencies:
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+    prop-types "^15.5.10"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -4022,6 +4044,10 @@ string_decoder@~1.0.3:
   dependencies:
     safe-buffer "~5.1.0"
 
+"string_score@git+https://github.com/ThiagoNP/string_score.git":
+  version "0.1.20"
+  resolved "git+https://github.com/ThiagoNP/string_score.git#62588b6c43fe957f631f6bfd76300cad678a7941"
+
 stringstream@~0.0.4:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.5.tgz#4e484cd4de5a0bbbee18e46307710a8a81621878"
@@ -4267,7 +4293,7 @@ webidl-conversions@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.1.tgz#8015a17ab83e7e1b311638486ace81da6ce206a0"
 
-"websql@github:expo/node-websql#18.0.0":
+websql@expo/node-websql#18.0.0:
   version "0.4.4"
   resolved "https://codeload.github.com/expo/node-websql/tar.gz/e364fa65146a9e2157a19e5c719e7702c2b6b87a"
   dependencies:

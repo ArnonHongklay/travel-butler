@@ -10,32 +10,39 @@ export default class Segment extends Component {
 
   render() {
     const options = ["Round trip", "Oneway"];
-
-    function setSelectedOption(selectedOption) {
+    const setSelectedOption = selectedOption => {
       this.setState({
         selectedOption
       });
-    }
+    };
 
     return (
       <SegmentedControls
-        tint={"#000"}
+        tint={"#81c04d"}
         selectedTint={"white"}
         backTint={"#fff"}
         options={options}
         allowFontScaling={false} // default: true
         onSelection={setSelectedOption.bind(this)}
-        containerStyle={{
-          marginTop: 20,
-          marginLeft: 20,
-          marginRight: 20
-        }}
         selectedOption={this.state.selectedOption}
-        optionStyle={{
-          fontFamily: "AvenirNext-Medium"
-        }}
-        optionContainerStyle={{ flex: 1 }}
+        containerStyle={ui.segmentContainerStyle}
+        optionStyle={ui.segmentOptionStyle}
+        optionContainerStyle={ui.segmentOptionContainerStyle}
       />
     );
   }
 }
+
+const ui = StyleSheet.create({
+  segmentContainerStyle: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20
+  },
+  segmentOptionStyle: {
+    fontFamily: "AvenirNext-Medium"
+  },
+  segmentOptionContainerStyle: {
+    flex: 1
+  }
+});
