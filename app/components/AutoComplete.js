@@ -22,7 +22,12 @@ export default class AutoComplete extends Component {
   }
 
   loadData() {
-    const link = `${API_AMADEUS}/${API_VERSION}/${API_PATH}?apikey=${API_KEY}&term=Roch`;
+    if (this.state.query) {
+      link = `${API_AMADEUS}/${API_VERSION}/${API_PATH}?apikey=${API_KEY}&term=${this
+        .state.query}`;
+    } else {
+      link = `${API_AMADEUS}/${API_VERSION}/${API_PATH}?apikey=${API_KEY}&term=a`;
+    }
 
     fetch(link).then(response => response.json()).then(json => {
       this.setState({ fights: json });
