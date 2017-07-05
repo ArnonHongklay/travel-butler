@@ -4,7 +4,6 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import ReactAutoComplete from "react-native-autocomplete-input";
 import Countries from "../apis/countries.json";
 
-const API = "https://swapi.co/api";
 const API_AMADEUS = "https://api.sandbox.amadeus.com";
 const API_VERSION = "v1.2";
 const API_PATH = "airports/autocomplete";
@@ -67,7 +66,10 @@ export default class AutoComplete extends Component {
         onChangeText={text => this.setState({ query: text })}
         renderItem={({ label, value }) =>
           <TouchableOpacity
-            onPress={() => this.setState({ query: label.split(" [")[0] })}
+            onPress={() => {
+              this.setState({ query: label.split(" [")[0] });
+              this.props.onChange({ value: value });
+            }}
           >
             <Text style={ui.itemText}>
               {label.split(" [")[0]}
@@ -87,7 +89,7 @@ const ui = StyleSheet.create({
     marginTop: 20,
     marginLeft: 20,
     marginRight: 20,
-    fontSize: 10,
+    // fontSize: 10,
     zIndex: 1
   },
   autoCompleteListStyle: {
@@ -104,11 +106,11 @@ const ui = StyleSheet.create({
     borderRadius: 2,
     paddingLeft: 5,
     paddingRight: 5,
-    backgroundColor: "#fff",
-    fontSize: 10
+    backgroundColor: "#fff"
+    // fontSize: 10
   },
   itemText: {
-    fontSize: 10,
+    // fontSize: 10,
     margin: 5,
     borderRadius: 4
   }

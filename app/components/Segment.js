@@ -14,6 +14,8 @@ export default class Segment extends Component {
       this.setState({
         selectedOption
       });
+
+      this.props.onChange(selectedOption);
     };
 
     return (
