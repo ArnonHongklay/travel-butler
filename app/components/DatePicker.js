@@ -24,6 +24,7 @@ export default class DatePicker extends Component {
           cancelBtnText="Cancel"
           onDateChange={date => {
             this.setState({ date: date });
+            this.props.onChange({ date });
           }}
           style={ui.datePickerStyle}
           customStyles={{
