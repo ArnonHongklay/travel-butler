@@ -14,15 +14,11 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { Constants } from "expo";
 
-import Autocomplete from "react-native-autocomplete-input";
+import ui from "./app/ui";
 import DatePicker from "react-native-datepicker";
 import { RadioButtons, SegmentedControls } from "react-native-radio-buttons";
 import Button from "react-native-button";
-
-const API = "https://swapi.co/api";
-const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII"];
 
 export default class TravelButler extends Component {
   constructor(props) {
@@ -55,19 +51,11 @@ export default class TravelButler extends Component {
     }
 
     return (
-      <View style={styles.container}>
-        <View style={styles.toolbar}>
-          <Text style={styles.toolbarButton}>Add</Text>
-          <Text style={styles.toolbarTitle}>This is the title</Text>
-          <Text style={styles.toolbarButton}>Like</Text>
+      <View style={ui.container}>
+        <View style={ui.toolbar}>
+          <Text style={ui.toolbarTitle}>Travel Butler!</Text>
         </View>
-        <Text style={styles.paragraph}>Travel Butler!</Text>
 
-        <TextInput
-          value={this.state.inputValue}
-          onChangeText={this._handleTextChange}
-          style={styles.departure}
-        />
         <SegmentedControls
           tint={"#000"}
           selectedTint={"white"}
@@ -169,73 +157,5 @@ export default class TravelButler extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  toolbar: {
-    backgroundColor: "#81c04d",
-    paddingTop: 30,
-    paddingBottom: 10,
-    flexDirection: "row" //Step 1
-  },
-  toolbarButton: {
-    width: 50, //Step 2
-    color: "#fff",
-    textAlign: "center"
-  },
-  toolbarTitle: {
-    color: "#fff",
-    textAlign: "center",
-    fontWeight: "bold",
-    flex: 1 //Step 3
-  },
-  container: {
-    backgroundColor: "#F5FCFF",
-    flex: 1
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  },
-  autocompleteContainer: {
-    marginTop: 20,
-    marginLeft: 20,
-    marginRight: 20
-  },
-  itemText: {
-    fontSize: 15,
-    margin: 2
-  },
-  descriptionContainer: {
-    // `backgroundColor` needs to be set otherwise the
-    // autocomplete input will disappear on text input.
-    backgroundColor: "#F5FCFF",
-    marginTop: 8
-  },
-  infoText: {
-    textAlign: "center"
-  },
-  titleText: {
-    fontSize: 18,
-    fontWeight: "500",
-    marginBottom: 10,
-    marginTop: 10,
-    textAlign: "center"
-  },
-  directorText: {
-    color: "grey",
-    fontSize: 12,
-    marginBottom: 10,
-    textAlign: "center"
-  },
-  openingText: {
-    textAlign: "center"
-  }
-});
 
 AppRegistry.registerComponent("TravelButler", () => TravelButler);
