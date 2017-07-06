@@ -19,10 +19,14 @@ export default class Button extends Component {
     const destinationValue = this.props.dataSubmit.destinationValue.value;
     const departureValue = this.props.dataSubmit.departureValue.date;
     const returnValue = this.props.dataSubmit.returnValue.date;
-    const oneway = this.props.dataSubmit.segment;
+    const oneway = this.props.dataSubmit.segmentValue;
 
-    link = `${API_AMADEUS}/${API_VERSION}/${API_PATH}?apikey=${API_KEY}&origin=${originValue}&destination=${destinationValue}&departure_date=${departureValue}&return_date=${returnValue}&travel_class=ECONOMY&nonstop=false`;
-
+    console.log(oneway);
+    if (oneway == "oneway") {
+      link = `${API_AMADEUS}/${API_VERSION}/${API_PATH}?apikey=${API_KEY}&origin=${originValue}&destination=${destinationValue}&departure_date=${departureValue}&travel_class=ECONOMY`;
+    } else {
+      link = `${API_AMADEUS}/${API_VERSION}/${API_PATH}?apikey=${API_KEY}&origin=${originValue}&destination=${destinationValue}&departure_date=${departureValue}&return_date=${returnValue}&travel_class=ECONOMY&nonstop=false`;
+    }
     console.log(link);
     fetch(link).then(response => response.json()).then(json => {
       console.log(json);
